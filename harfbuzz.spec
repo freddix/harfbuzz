@@ -1,11 +1,11 @@
 Summary:	Internationalized text shaping library
 Name:		harfbuzz
-Version:	0.9.16
+Version:	0.9.18
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://www.freedesktop.org/software/harfbuzz/release/%{name}-%{version}.tar.bz2
-# Source0-md5:	90855e670c790c1fec4592908be3c0b8
+# Source0-md5:	0bff05fafef4894031b2b64a65ac1899
 URL:		http://www.freedesktop.org/wiki/HarfBuzz
 BuildRequires:	cairo-devel
 BuildRequires:	freetype-devel
@@ -71,13 +71,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hb-ot-shape-closure
 %attr(755,root,root) %{_bindir}/hb-shape
 %attr(755,root,root) %{_bindir}/hb-view
+%attr(755,root,root) %ghost %{_libdir}/libharfbuzz-icu.so.0
 %attr(755,root,root) %ghost %{_libdir}/libharfbuzz.so.0
+%attr(755,root,root) %{_libdir}/libharfbuzz-icu.so.*.*.*
 %attr(755,root,root) %{_libdir}/libharfbuzz.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libharfbuzz-icu.so
 %attr(755,root,root) %{_libdir}/libharfbuzz.so
 %{_libdir}/*.la
 %{_includedir}/harfbuzz
+%{_pkgconfigdir}/harfbuzz-icu.pc
 %{_pkgconfigdir}/harfbuzz.pc
 
