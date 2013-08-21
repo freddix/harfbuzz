@@ -1,7 +1,7 @@
 Summary:	Internationalized text shaping library
 Name:		harfbuzz
 Version:	0.9.19
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://www.freedesktop.org/software/harfbuzz/release/%{name}-%{version}.tar.bz2
@@ -10,7 +10,7 @@ URL:		http://www.freedesktop.org/wiki/HarfBuzz
 BuildRequires:	cairo-devel
 BuildRequires:	freetype-devel
 BuildRequires:	glib-devel
-#BuildRequires:	graphite2-devel
+BuildRequires:	graphite2-devel
 BuildRequires:	icu-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkg-config
@@ -44,7 +44,8 @@ API and internal documentation for HarfBuzz library.
 %{__automake}
 %{__autoconf}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules	\
+	--with-graphite2
 %{__make}
 
 %install
