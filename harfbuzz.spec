@@ -1,11 +1,11 @@
 Summary:	Internationalized text shaping library
 Name:		harfbuzz
-Version:	0.9.20
+Version:	0.9.21
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://www.freedesktop.org/software/harfbuzz/release/%{name}-%{version}.tar.bz2
-# Source0-md5:	fe36a04a61a2562b8522d516fb36309d
+# Source0-md5:	468a381e992ae9313cef6595f4e233db
 URL:		http://www.freedesktop.org/wiki/HarfBuzz
 BuildRequires:	cairo-devel
 BuildRequires:	freetype-devel
@@ -45,7 +45,8 @@ API and internal documentation for HarfBuzz library.
 %{__autoconf}
 %configure \
 	--disable-silent-rules	\
-	--with-graphite2
+	--with-graphite2	\
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -54,9 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# missing
+# missing deps
 cat >> $RPM_BUILD_ROOT%{_pkgconfigdir}/harfbuzz.pc <<EOF
-Requires.private: glib-2.0 gobject-2.0 icu-le icu-uc freetype2
+Requires.private: glib-2.0 freetype2 graphite2
 EOF
 
 
@@ -81,8 +82,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libharfbuzz-icu.so
 %attr(755,root,root) %{_libdir}/libharfbuzz.so
-%{_libdir}/*.la
 %{_includedir}/harfbuzz
 %{_pkgconfigdir}/harfbuzz-icu.pc
 %{_pkgconfigdir}/harfbuzz.pc
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/harfbuzz
 
