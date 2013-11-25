@@ -1,11 +1,11 @@
 Summary:	Internationalized text shaping library
 Name:		harfbuzz
-Version:	0.9.23
+Version:	0.9.24
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://www.freedesktop.org/software/harfbuzz/release/%{name}-%{version}.tar.bz2
-# Source0-md5:	a4a9b548577e2ee22f0887937da5fd6c
+# Source0-md5:	9da7f9dd901ed9e093a033118ac663f4
 URL:		http://www.freedesktop.org/wiki/HarfBuzz
 BuildRequires:	cairo-devel
 BuildRequires:	freetype-devel
